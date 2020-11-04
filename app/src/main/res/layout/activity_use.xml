@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UseActivity">
+    <EditText
+        android:id="@+id/edtSite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="ENTER THE SITE ADDRESS"
+        android:textSize="20sp"
+        android:background="@drawable/costumeboarder"
+        android:gravity="center"
+        android:layout_marginTop="15dp"/>
+    <ImageButton
+        android:id="@+id/btnBrowse"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_baseline_wifi_24"
+        android:background="@drawable/button_round"
+        android:layout_below="@id/edtSite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+    <EditText
+        android:id="@+id/edtCall"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="ENTER THE PHONE NUMBER"
+        android:textSize="20sp"
+        android:background="@drawable/costumeboarder"
+        android:gravity="center"
+        android:layout_below="@id/btnBrowse"
+        android:layout_marginTop="30dp"/>
+    <ImageButton
+        android:id="@+id/btnCall"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_baseline_call_24"
+        android:background="@drawable/button_round"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edtCall"
+        android:layout_marginTop="15dp"/>
+    <EditText
+        android:id="@+id/edtSms"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="ENTER THE PHONE NUMBER"
+        android:textSize="20sp"
+        android:background="@drawable/costumeboarder"
+        android:gravity="center"
+        android:layout_below="@id/btnCall"
+        android:layout_marginTop="30dp"/>
+    <EditText
+        android:id="@+id/edtTextSms"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="ENTER THE TEXT"
+        android:textSize="20sp"
+        android:background="@drawable/costumeboarder"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/edtSms"
+        android:layout_marginTop="10dp"/>
+    <ImageButton
+        android:id="@+id/btnSms"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_baseline_sms_24"
+        android:background="@drawable/button_round"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edtTextSms"
+        android:layout_marginTop="15dp"/>
+    <ImageButton
+        android:id="@+id/btnCamera"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/camera"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"/>
+</RelativeLayout>
