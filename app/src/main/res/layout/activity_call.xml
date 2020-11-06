@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    tools:context=".CallActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="start"
+        android:background="@color/white">
+        <ImageView
+            android:id="@+id/imgBack2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"/>
+    </androidx.appcompat.widget.Toolbar>
+    <EditText
+        android:id="@+id/edtCall_"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@drawable/costumeboarder"
+        android:hint="Please Enter the Number"
+        android:textSize="30sp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"/>
+    <ImageButton
+        android:id="@+id/itnCall"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:src="@drawable/call_24"
+        android:background="@drawable/button_round"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>

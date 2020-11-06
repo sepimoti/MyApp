@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             val edtPhone=edtPhone.text.toString()
             val edtEmail=edtEmail.text.toString()
 
-            val intent=Intent(this,ShowActivity::class.java)
+            val intent=Intent(this,DrawerActivity::class.java)
 
             intent.putExtra("First",edtFirst)
             intent.putExtra("Last",edtLast)
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode==100    &&   resultCode== Activity.RESULT_OK){
             val result=data?.getStringExtra("Comment")
-            Toast.makeText(this,result, Toast.LENGTH_LONG).show()
+            Toast.makeText(this,result,Toast.LENGTH_LONG).show()
         }
     }
 }
