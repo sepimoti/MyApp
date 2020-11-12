@@ -7,7 +7,10 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
-        <activity android:name=".SmsActivity"></activity>
+        <activity android:name=".MainActivity2"></activity>
+        <activity android:name=".SmsActivity" />
         <activity android:name=".CallActivity" />
         <activity android:name=".PictureActivity" />
         <activity android:name=".DrawerActivity">

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="200dp"
+    android:layout_height="150dp"
+    android:background="@drawable/button_recycler"
+    android:layout_marginLeft="5dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/drag_indicator"
+        android:layout_gravity="end"/>
+    <ImageView
+        android:id="@+id/imgRecyclerView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+</LinearLayout>
