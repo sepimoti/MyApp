@@ -3,6 +3,7 @@ package com.example.myapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -32,8 +33,8 @@ class DrawerActivity : AppCompatActivity() {
         val call=findViewById<TextView>(R.id.txtCall)
         val sms=findViewById<TextView>(R.id.txtSms)
 
-        firstName.text=intent.getStringExtra("First")
-        lastName.text=intent.getStringExtra("Last")
+        firstName.text=PreferenceManager.getDefaultSharedPreferences(this).getString("first","unknown")
+        lastName.text=PreferenceManager.getDefaultSharedPreferences(this).getString("last","unknown")
 
         recycler.adapter=adapter
         recycler.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)

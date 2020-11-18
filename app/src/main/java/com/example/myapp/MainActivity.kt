@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -22,27 +23,34 @@ class MainActivity : AppCompatActivity() {
         val edtEmail=findViewById<EditText>(R.id.edtEmail)
 
         btnSend.setOnClickListener(View.OnClickListener {
-            val edtFirst=edtFirst.text.toString()
-            val edtLast=edtLast.text.toString()
-            val edtAge=edtAge.text.toString()
-            val edtPhone=edtPhone.text.toString()
-            val edtEmail=edtEmail.text.toString()
+            val dataFirst=edtFirst.text.toString()
+            val dataLast=edtLast.text.toString()
+            val dataAge=edtAge.text.toString()
+            val dataPhone=edtPhone.text.toString()
+            val dataEmail=edtEmail.text.toString()
 
             val intent=Intent(this,DrawerActivity::class.java)
 
-            intent.putExtra("First",edtFirst)
-            intent.putExtra("Last",edtLast)
-            intent.putExtra("Age",edtAge)
-            intent.putExtra("Phone",edtPhone)
-            intent.putExtra("Email",edtEmail)
+            val prefFirst=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("first",dataFirst).apply()
+            val prefLast=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("last",dataLast).apply()
+            val prefAge=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("age",dataAge).apply()
+            val prefPhone=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("phone",dataPhone).apply()
+            val prefEmail=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("email",dataEmail).apply()
 
-            startActivityForResult(intent,100)
+            startActivity(intent)
+/*            intent.putExtra("First",dataFirst)
+            intent.putExtra("Last",dataLast)
+            intent.putExtra("Age",dataAge)
+            intent.putExtra("Phone",dataPhone)
+            intent.putExtra("Email",dataEmail)
+
+            startActivityForResult(intent,100)*/
         })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode==100    &&   resultCode== Activity.RESULT_OK){
+        if (requestCode==100    &&   resultCode==Activity.RESULT_OK){
             val result=data?.getStringExtra("Comment")
             Toast.makeText(this,result,Toast.LENGTH_LONG).show()
         }
