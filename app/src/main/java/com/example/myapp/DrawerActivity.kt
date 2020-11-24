@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -32,9 +33,7 @@ class DrawerActivity : AppCompatActivity() {
         val picture=findViewById<TextView>(R.id.txtPicture)
         val call=findViewById<TextView>(R.id.txtCall)
         val sms=findViewById<TextView>(R.id.txtSms)
-
-        firstName.text=PreferenceManager.getDefaultSharedPreferences(this).getString("first","unknown")
-        lastName.text=PreferenceManager.getDefaultSharedPreferences(this).getString("last","unknown")
+        val prayTime=findViewById<TextView>(R.id.txtPray)
 
         recycler.adapter=adapter
         recycler.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
@@ -68,6 +67,12 @@ class DrawerActivity : AppCompatActivity() {
         sms.setOnClickListener(View.OnClickListener {
             val intentSms=Intent(this,SmsActivity::class.java)
             startActivity(intentSms)
+            finish()
+        })
+
+        prayTime.setOnClickListener(View.OnClickListener {
+            val intentPray=Intent(this,PrayTimeActivity::class.java)
+            startActivity(intentPray)
             finish()
         })
     }

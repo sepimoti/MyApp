@@ -4,9 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
@@ -22,30 +20,25 @@ class MainActivity : AppCompatActivity() {
         val edtPhone=findViewById<EditText>(R.id.edtPhone)
         val edtEmail=findViewById<EditText>(R.id.edtEmail)
 
-        btnSend.setOnClickListener(View.OnClickListener {
-            val dataFirst=edtFirst.text.toString()
-            val dataLast=edtLast.text.toString()
-            val dataAge=edtAge.text.toString()
-            val dataPhone=edtPhone.text.toString()
-            val dataEmail=edtEmail.text.toString()
+        try {
+            btnSend.setOnClickListener(View.OnClickListener {
+                val dataFirst = edtFirst.text.toString()
+                val dataLast = edtLast.text.toString()
+                val dataAge = edtAge.text.toString().toInt()
+                val dataPhone = edtPhone.text.toString().toInt()
+                val dataEmail = edtEmail.text.toString()
 
-            val intent=Intent(this,DrawerActivity::class.java)
+                val dataBase=SQLiteHelper(this,"Data",null,1)
+                dataBase.InsertData(dataFirst, dataLast, dataAge, dataPhone, dataEmail)
+                Toast.makeText(this, "!!!SAVED!!!", Toast.LENGTH_SHORT).show()
 
-            val prefFirst=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("first",dataFirst).apply()
-            val prefLast=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("last",dataLast).apply()
-            val prefAge=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("age",dataAge).apply()
-            val prefPhone=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("phone",dataPhone).apply()
-            val prefEmail=PreferenceManager.getDefaultSharedPreferences(this).edit().putString("email",dataEmail).apply()
-
-            startActivity(intent)
-/*            intent.putExtra("First",dataFirst)
-            intent.putExtra("Last",dataLast)
-            intent.putExtra("Age",dataAge)
-            intent.putExtra("Phone",dataPhone)
-            intent.putExtra("Email",dataEmail)
-
-            startActivityForResult(intent,100)*/
-        })
+                val intent = Intent(this, DrawerActivity::class.java)
+                startActivity(intent)
+                finish()
+            })
+        }catch (e : Exception){
+            e.printStackTrace()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
