@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val btnSend=findViewById<ImageButton>(R.id.btnSend)
         val edtFirst=findViewById<EditText>(R.id.edtFirst)
         val edtLast=findViewById<EditText>(R.id.edtLast)
@@ -20,32 +21,28 @@ class MainActivity : AppCompatActivity() {
         val edtPhone=findViewById<EditText>(R.id.edtPhone)
         val edtEmail=findViewById<EditText>(R.id.edtEmail)
 
-        try {
-            btnSend.setOnClickListener(View.OnClickListener {
-                val dataFirst = edtFirst.text.toString()
-                val dataLast = edtLast.text.toString()
-                val dataAge = edtAge.text.toString().toInt()
-                val dataPhone = edtPhone.text.toString().toInt()
-                val dataEmail = edtEmail.text.toString()
+        btnSend.setOnClickListener(View.OnClickListener {
+            val dataFirst = edtFirst.text.toString()
+            val dataLast = edtLast.text.toString()
+            val dataAge = edtAge.text.toString().toInt()
+            val dataPhone = edtPhone.text.toString().toInt()
+            val dataEmail = edtEmail.text.toString()
 
-                val dataBase=SQLiteHelper(this,"Data",null,1)
-                dataBase.InsertData(dataFirst, dataLast, dataAge, dataPhone, dataEmail)
-                Toast.makeText(this, "!!!SAVED!!!", Toast.LENGTH_SHORT).show()
+            val DataBase=SQLiteHelper(this,"Data",null,1)
+            DataBase.InsertData(dataFirst,dataLast,dataAge,dataPhone,dataEmail)
+            Toast.makeText(this,"!!SAVED!!",Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this, DrawerActivity::class.java)
-                startActivity(intent)
-                finish()
-            })
-        }catch (e : Exception){
-            e.printStackTrace()
-        }
+            val intent = Intent(this, DrawerActivity::class.java)
+            startActivity(intent)
+            finish()
+        })
     }
-
+/*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode==100    &&   resultCode==Activity.RESULT_OK){
             val result=data?.getStringExtra("Comment")
             Toast.makeText(this,result,Toast.LENGTH_LONG).show()
         }
-    }
+    }*/
 }

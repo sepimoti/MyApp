@@ -34,6 +34,13 @@ class DrawerActivity : AppCompatActivity() {
         val call=findViewById<TextView>(R.id.txtCall)
         val sms=findViewById<TextView>(R.id.txtSms)
         val prayTime=findViewById<TextView>(R.id.txtPray)
+        val map=findViewById<TextView>(R.id.txtMap)
+        val web=findViewById<TextView>(R.id.txtWeb)
+        val video=findViewById<TextView>(R.id.txtVideo)
+
+        val DataBase=SQLiteHelper(this,"Data",null,1)
+        firstName.text=DataBase.ReadTable("name")
+        lastName.text=DataBase.ReadTable("family")
 
         recycler.adapter=adapter
         recycler.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
@@ -73,6 +80,24 @@ class DrawerActivity : AppCompatActivity() {
         prayTime.setOnClickListener(View.OnClickListener {
             val intentPray=Intent(this,PrayTimeActivity::class.java)
             startActivity(intentPray)
+            finish()
+        })
+
+        map.setOnClickListener(View.OnClickListener {
+            val intentMap=Intent(this,MapsActivity::class.java)
+            startActivity(intentMap)
+            finish()
+        })
+
+        web.setOnClickListener(View.OnClickListener {
+            val intentWeb=Intent(this,WebActivity::class.java)
+            startActivity(intentWeb)
+            finish()
+        })
+
+        video.setOnClickListener(View.OnClickListener {
+            val intentVideo=Intent(this,VideoActivity::class.java)
+            startActivity(intentVideo)
             finish()
         })
     }

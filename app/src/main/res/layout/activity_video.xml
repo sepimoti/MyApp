@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="start"
+    android:orientation="vertical"
+    tools:context=".VideoActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="start"
+        android:background="@color/white">
+        <ImageView
+            android:id="@+id/imgBackVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"/>
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:layout_marginTop="10dp">
+        <ImageButton
+            android:id="@+id/btnVideoView"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selecter_button"
+            android:src="@drawable/motion_video"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"/>
+        <EditText
+            android:id="@+id/edtVideoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/costumeboarder"
+            android:gravity="center"
+            android:hint="Please Enter URL"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

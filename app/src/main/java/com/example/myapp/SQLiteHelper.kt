@@ -4,7 +4,6 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
 
 class SQLiteHelper(
     context: Context?,
@@ -16,19 +15,22 @@ class SQLiteHelper(
     val Table_Name="Data"
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val Create_Table=("CREATE TABLE " + Table_Name
-                               +" (_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                               +"name TEXT,"
-                               +"family TEXT,"
-                               +"age INTEGER,"
-                               +"phone INTEGER,"
-                               +"email TEXT)")
+        val Create_Table=("CREATE TABLE "+Table_Name+" (_id INTEGER PRIMARY KEY AUTOINCREMENT "
+                                 +", name TEXT "
+                                 +", family TEXT "
+                                 +", age INTEGER "
+                                 +", phone INTEGER "
+                                 +", email TEXT)")
         db?.execSQL(Create_Table)
     }
 
     fun InsertData(name : String , family : String , age : Int , phone : Int , email : String){
-        val Insert_Table=("INSERT INTO " + Table_Name + " (name,family,age,phone,email) VALUES "
-                               + "('" + name + "','" + family + "'," + age + "," + phone + ",'" + email + "')" )
+        val Insert_Table=("INSERT INTO "+Table_Name+" (name,family,age,phone,email) VALUES ('"
+                                +name+"' , '"
+                                +family+"' , "
+                                +age+" , "
+                                +phone+" , '"
+                                +email+"')")
         val db=this.writableDatabase
         db.execSQL(Insert_Table)
         db.close()
